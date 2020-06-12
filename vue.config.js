@@ -5,6 +5,34 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
+// 配置不进行webpack打包的文件
+const externals = {
+  'vue': 'Vue',
+  'vue-router': 'VueRouter',
+  'vuex': 'Vuex',
+  'axios': 'axios'
+  // 'lodash':'_',
+  // 'echarts': 'echarts',
+  // 'nprogress': 'NProgress',
+}
+// 使用cdn引入
+const cdn = {
+  css: [],
+  js: [
+    'https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js',
+    'https://cdn.jsdelivr.net/npm/vue-router@3.0.1/dist/vue-router.min.js',
+    'https://cdn.jsdelivr.net/npm/vuex@3.0.1/dist/vuex.min.js',
+    'https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js',
+  ]
+}
+
+// gzip压缩
+// 需要安装插件：npm install --save-dev compression-webpack-plugin
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+// 可加入需要的其他文件类型，比如json
+// 图片不要压缩，体积会比原来还大
+const productionGzipExtensions = ["js", "css", "json"];
+
 module.exports = {
   // publicPath: './', // 公共路径
   //如果使用了history.pushState pages的路由时； 选项构建多页面应用时；
@@ -42,6 +70,21 @@ module.exports = {
       // 为生产环境修改配置...
       // 去掉所有console.log()
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true;
+
+      return {
+        // 配置不进行webpack打包的文件
+        externals: externals,
+        // 配置gzip压缩
+        plugins: [
+          new CompressionWebpackPlugin({
+            // filename: '[path].gz[query]',
+            algorithm: "gzip",
+            test: new RegExp("\\.(" + productionGzipExtensions.join("|") + ")$"),
+            threshold: 10240, //对超过10k的数据进行压缩
+            minRatio: 0.6 // 压缩比例，值为0 ~ 1
+          })
+        ]
+      };
     } else {
       // 为开发环境修改配置...
     }
@@ -52,6 +95,21 @@ module.exports = {
     config.resolve.alias.set('@router', resolve('src/router'));
     config.resolve.alias.set('@store', resolve('src/store'));
     config.resolve.alias.set('@views', resolve('src/views'));
+
+    // 配置cdn引入
+    config.plugin('html').tap(args => {
+      // 配置index.html title
+      args[0].title = 'vue-data';
+
+      if (process.env.NODE_ENV === 'production') {
+        args[0].cdn = cdn
+      }
+      return args
+    })
+    // 移除 prefetch 插件
+    config.plugins.delete('prefetch');
+    // 移除 preload 插件
+    config.plugins.delete('preload');
   },
   pluginOptions: {
     // 第三方插件配置
