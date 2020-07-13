@@ -1,27 +1,33 @@
+<!-- eslint-disable -->
 <template>
-  <Form :model="formData" :label-width="80">
-    <FormItem class="upload" label="上传文件">
-      <Upload
-        :before-upload="handleUpload"
-        :action="''"
-        :multiple="true"
-      >
-        <Button icon="ios-cloud-upload-outline">请选择附件</Button>
-      </Upload>
-      <!-- 进度条 -->
-      <Progress v-if="upload.fileProgressShow" :percent="upload.fileProgress" />
-      <!-- 显示列表 -->
-      <ul>
-        <li
-          v-for="(item, index) of formData.dispalyFile"
-          :key="index"
+  <div>
+    <p>iveiw 上传多文件只请求一次ajax</p>
+    <p>项目没引入iview,暂时无法使用</p>
+    <router-link to="/">返回目录</router-link>
+    <Form :model="formData" :label-width="80">
+      <FormItem class="upload" label="上传文件">
+        <Upload
+          :before-upload="handleUpload"
+          :action="''"
+          :multiple="true"
         >
-          <span>{{ item.name }}</span>
-          <Icon type="md-close" @click="handleRemove(index)" />
-        </li>
-      </ul>
-    </FormItem>
-  </Form>
+          <Button icon="ios-cloud-upload-outline">请选择附件</Button>
+        </Upload>
+        <!-- 进度条 -->
+        <Progress v-if="upload.fileProgressShow" :percent="upload.fileProgress" />
+        <!-- 显示列表 -->
+        <ul>
+          <li
+            v-for="(item, index) of formData.dispalyFile"
+            :key="index"
+          >
+            <span>{{ item.name }}</span>
+            <Icon type="md-close" @click="handleRemove(index)" />
+          </li>
+        </ul>
+      </FormItem>
+    </Form>
+  </div>
 </template>
 
 <script>

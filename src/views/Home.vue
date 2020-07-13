@@ -103,6 +103,9 @@
         <dd>
           <router-link to="/render-call">render函数渲染组件</router-link>
         </dd>
+        <dd>
+          <router-link to="/iview-uploadFile">iveiw 上传多文件只请求一次ajax</router-link>
+        </dd>
       </dl>
       <dl class="list">
         <dt>其他</dt>

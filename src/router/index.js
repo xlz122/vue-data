@@ -163,6 +163,11 @@ const routes = [
     name: 'render-call',
     component: () => import('../views/example/render-call.vue')
   },
+  {
+    path: '/iview-uploadFile',
+    name: 'iview-uploadFile',
+    component: () => import('../views/example/iview-uploadFile.vue')
+  }
   // 其他
 ];
 

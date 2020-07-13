@@ -95,13 +95,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.chart {
-  /deep/.bar {
+/deep/.chart {
+  .bar {
     fill: #3c763d;
     stroke: black;
     stroke-width: 5;
   }
-  /deep/.bar:hover {
+  .bar:hover {
     fill: red;
     stroke: black;
     stroke-width: 5;
