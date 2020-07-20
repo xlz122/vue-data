@@ -106,6 +106,9 @@
         <dd>
           <router-link to="/iview-uploadFile">iveiw 上传多文件只请求一次ajax</router-link>
         </dd>
+        <dd>
+          <router-link to="/vue-awesome-swiper">vue-awesome-swiper 轮播</router-link>
+        </dd>
       </dl>
       <dl class="list">
         <dt>其他</dt>

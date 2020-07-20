@@ -167,6 +167,11 @@ const routes = [
     path: '/iview-uploadFile',
     name: 'iview-uploadFile',
     component: () => import('../views/example/iview-uploadFile.vue')
+  },
+  {
+    path: '/vue-awesome-swiper',
+    name: 'vue-awesome-swiper',
+    component: () => import('../views/example/vue-awesome-swiper.vue')
   }
   // 其他
 ];
