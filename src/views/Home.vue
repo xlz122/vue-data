@@ -109,6 +109,9 @@
         <dd>
           <router-link to="/vue-awesome-swiper">vue-awesome-swiper 轮播</router-link>
         </dd>
+        <dd>
+          <router-link to="/vue-lazyload">vue-lazyload 图片懒加载</router-link>
+        </dd>
       </dl>
       <dl class="list">
         <dt>其他</dt>

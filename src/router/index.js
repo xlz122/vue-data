@@ -172,6 +172,11 @@ const routes = [
     path: '/vue-awesome-swiper',
     name: 'vue-awesome-swiper',
     component: () => import('../views/example/vue-awesome-swiper.vue')
+  },
+  {
+    path: '/vue-lazyload',
+    name: 'vue-lazyload',
+    component: () => import('../views/example/vue-lazyload.vue')
   }
   // 其他
 ];
