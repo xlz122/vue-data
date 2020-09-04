@@ -16,6 +16,11 @@ Vue.use(VueLazyload, {
   attempt: 1, // 加载错误后最大重试次数，默认3
 });
 
+// 引入iview
+import ViewUI from 'view-design';
+import 'view-design/dist/styles/iview.css';
+Vue.use(ViewUI);
+
 Vue.config.productionTip = false;
 
 new Vue({

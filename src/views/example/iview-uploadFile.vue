@@ -2,7 +2,6 @@
 <template>
   <div>
     <p>iveiw 上传多文件只请求一次ajax</p>
-    <p>项目没引入iview,暂时无法使用</p>
     <router-link to="/">返回目录</router-link>
     <Form :model="formData" :label-width="80">
       <FormItem class="upload" label="上传文件">
