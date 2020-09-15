@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>使用vue-observable插件，小型vuex</p>
+    <p>vue-observable全局API，小型vuex</p>
     <p><router-link to="/">返回目录</router-link></p>
     <div>
       <p>token:{{token}}</p>
