@@ -112,6 +112,9 @@
         <dd>
           <router-link to="/vue-lazyload">vue-lazyload 图片懒加载</router-link>
         </dd>
+        <dd>
+          <router-link to="/vue-observable">vue-observable插件，小型vuex</router-link>
+        </dd>
       </dl>
       <dl class="list">
         <dt>其他</dt>

@@ -1,4 +1,3 @@
-<!-- eslint-disable -->
 <template>
   <DigitFlip
     :text="text"
@@ -11,7 +10,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import DigitFlip from './digit-flip.vue';
 export default {
   components: {
@@ -20,26 +18,33 @@ export default {
   data() {
     return {
       text: 9,
-      duration: 0.8, // 执行时间
+      duration: 0.3, // 执行时间
       delay: 0, // 延迟执行需要小于数据更新3s
       timingFn: '',
       beginZero: false
     }
   },
-  mounted () {
-    // setTimeout(() => {
-    //   this.text++;
-    // }, 1000);
-  },
   methods: {
     animationStart() {
-      console.log('开始执行');
+      // console.log('开始执行');
     },
     animationEnd() {
       console.log('执行完成了');
-      setTimeout(() => {
-        this.text++;
-      }, 5000);
+      let timer = null;
+      timer = setTimeout(() => {
+        console.log(Math.floor(Math.random() * 10000));
+        this.text = Math.floor(Math.random() * 10000);
+      }, 3000);
+      // if (this.text === 30) {
+      //   clearInterval(timer);
+      // }
+      // if (this.text >= 10) {
+      //   timer = setTimeout(() => {
+      //     this.text--;
+      //   }, 5000);
+      // } else {
+      //   clearInterval(timer);
+      // }
     }
   }
 }

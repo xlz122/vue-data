@@ -177,6 +177,11 @@ const routes = [
     path: '/vue-lazyload',
     name: 'vue-lazyload',
     component: () => import('../views/example/vue-lazyload.vue')
+  },
+  {
+    path: '/vue-observable',
+    name: 'vue-observable',
+    component: () => import('../views/example/vue-observable.vue')
   }
   // 其他
 ];
