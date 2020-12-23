@@ -120,12 +120,26 @@
         <dt>其他</dt>
       </dl>
     </div>
+    <Test @delList="delList" @delList2="delList2" />
   </div>
 </template>
 
 <script>
+import Test from './Test.vue';
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    Test
+  },
+  methods: {
+    delList(value) {
+      console.log(value);
+    },
+    delList2(value) {
+      console.log(value);
+    }
+  }
 };
 </script>
 
